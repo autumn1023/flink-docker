@@ -81,6 +81,17 @@ RUN set -ex; \
   rm flink.tgz; \
   \
   chown -R flink:flink .;
+  
+ RUN echo "export PS1='\u@\h:\W \$' " >> /etc/profile  && \
+    echo "alias ll='ls -alF'" >> /root/.bashrc  && \
+    echo "alias ls='ls --color=auto'" >> /root/.bashrc && \
+    echo "alias grep='grep --color=auto'" >> /root/.bashrc && \
+    echo "alias fgrep='fgrep --color=auto'" >> /root/.bashrc && \
+    echo "alias egrep='egrep --color=auto'" >> /root/.bashrc && \
+    source /root/.bashrc  
+
+ENV PS1 '\u@\h:\W \$'
+
 
 # Configure container
 COPY docker-entrypoint.sh /
