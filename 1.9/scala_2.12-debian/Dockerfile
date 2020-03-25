@@ -65,16 +65,6 @@ RUN set -ex; \
   wget -nv -O flink.tgz "$FLINK_TGZ_URL"; \
   wget -nv -O flink.tgz.asc "$FLINK_ASC_URL"; \
   \
-  export GNUPGHOME="$(mktemp -d)"; \
-  for server in ha.pool.sks-keyservers.net $(shuf -e \
-                          hkp://p80.pool.sks-keyservers.net:80 \
-                          keyserver.ubuntu.com \
-                          hkp://keyserver.ubuntu.com:80 \
-                          pgp.mit.edu) ; do \
-      gpg --batch --keyserver "$server" --recv-keys "$GPG_KEY" && break || : ; \
-  done && \
-  gpg --batch --verify flink.tgz.asc flink.tgz; \
-  gpgconf --kill all; \
   rm -rf "$GNUPGHOME" flink.tgz.asc; \
   \
   tar -xf flink.tgz --strip-components=1; \
