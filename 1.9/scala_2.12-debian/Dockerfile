@@ -57,8 +57,8 @@ WORKDIR $FLINK_HOME
 
 ENV FLINK_URL_FILE_PATH=flink/flink-${FLINK_VERSION}/flink-${FLINK_VERSION}-bin-scala_${SCALA_VERSION}.tgz
 # Not all mirrors have the .asc files
-ENV FLINK_TGZ_URL=https://www.apache.org/dyn/closer.cgi?action=download&filename=${FLINK_URL_FILE_PATH} \
-    FLINK_ASC_URL=https://archive.apache.org/dist/flink/flink-1.8.1/flink-1.8.1-bin-scala_2.12.tgz
+ENV FLINK_TGZ_URL=https://archive.apache.org/dist/flink/flink-1.8.1/flink-1.8.1-bin-scala_2.12.tgz \
+    FLINK_ASC_URL=https://archive.apache.org/dist/flink/flink-1.8.1/flink-1.8.1-bin-scala_2.12.tgz.asc
 
 # Install Flink
 RUN set -ex; \
