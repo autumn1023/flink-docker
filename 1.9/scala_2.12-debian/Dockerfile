@@ -44,7 +44,7 @@ RUN set -ex; \
   gosu nobody true
 
 # Configure Flink version
-ENV FLINK_VERSION=1.9.2 \
+ENV FLINK_VERSION=1.8.1 \
     SCALA_VERSION=2.12 \
     GPG_KEY=EF88474C564C7A608A822EEC3FF96A2057B6476C
 
